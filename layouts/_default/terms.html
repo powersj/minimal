@@ -4,7 +4,9 @@
 
     <h2>{{ .Title }}</h2>
 
-    {{ range (.Paginator 5).Pages }} {{ partial "list-item" . }} {{ end }}
+    {{ range sort $.Site.Taxonomies.tags.Alphabetical }}
+        <h4><a href="{{ .Name | urlize }}">{{ .Name }}</a></h4>
+    {{ end }}
 
 </main>
 

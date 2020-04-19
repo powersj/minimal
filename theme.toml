@@ -1,12 +1,16 @@
-name = "Minimal"
+name = "minimal-local"
 license = "MIT"
-licenselink = "https://github.com/calintat/minimal/blob/master/LICENSE.md"
+licenselink = "https://github.com/powersj/minimal-local/blob/master/LICENSE.md"
 description = "Personal blog theme powered by Hugo"
-homepage = "http://github.com/calintat/minimal/"
-tags = ["blog", "minimal", "personal", "responsive"]
+homepage = "https://github.com/powersj/minimal-local"
+tags = ["blog", "minimal", "personal", "responsive", "local"]
 features = ["responsive"]
 min_version = "0.24.1"
 
 [author]
+  name = "Joshua Powers"
+  homepage = "https://powersj.io/"
+
+[author-orig]
   name = "Calin Tataru"
   homepage = "https://calintat.github.io/"

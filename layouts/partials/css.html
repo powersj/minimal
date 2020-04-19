@@ -1,31 +1,42 @@
 <style>
+    @font-face {
+        font-family: 'Muli';
+        font-style: normal;
+        font-weight: 400;
+        src: url({{ "fonts/Muli.woff2" | absURL }}) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+        font-family: 'JetBrains Mono';
+        font-style: normal;
+        font-weight: normal;
+        src: url({{ "fonts/JetBrainsMono.woff2" | absURL }}) format('woff2');
+    }
 
     html body {
-        font-family: '{{ .Site.Params.font }}', sans-serif;
-        background-color: {{ .Site.Params.backgroundColor | default "white" }};
+        font-family: 'Muli', sans-serif;
+        background-color: '{{ .Site.Params.backgroundColor | default "white" }}';
     }
 
     :root {
         --accent: {{ .Site.Params.accent | default "#2196F3" }};
         --border-width: {{ if .Site.Params.showBorder | default false }} 5px {{ else }} 0 {{ end }};
     }
-
 </style>
 
-<!-- main -->
+
 <link rel="stylesheet" href="{{ "css/main.css" | absURL }}">
+<link rel="stylesheet" href="{{ "css/bootstrap.min.css" | absURL }}">
+<link rel="stylesheet" href="{{ "css/font-awesome.min.css" | absURL }}">
+<link rel="stylesheet" href="{{ "css/solarized-light.min.css" | absURL }}">
 
-<!-- custom -->
-{{ range .Site.Params.css }} <link rel="stylesheet" href="{{ . | absURL }}"> {{ end }}
+<style>
+    code, kbd, pre, samp {
+        font-family: 'JetBrains Mono', monospace;
+    }
+</style>
 
-<!-- google fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ .Site.Params.font }}">
-
-<!-- highlight.js -->
-{{ if .Site.Params.highlight | default false }} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/{{ .Site.Params.highlightStyle | default "default" }}.min.css"> {{ end }}
-
-<!-- bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- font awesome -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+{{ range .Site.Params.css }}
+    <link rel="stylesheet" href="{{ . | absURL }}">
+{{ end }}

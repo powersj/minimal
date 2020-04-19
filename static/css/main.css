@@ -14,14 +14,40 @@ main {
     padding: 25px;
     flex: 1 0 auto;
     max-width: 750px;
+    font-size: 1.4em;
+    line-height: 1.4em;
 }
 
 img {
     max-width: 100%;
 }
 
-/* Homepage */
+img[src$='#center']
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+/* A better table */
+table {
+    margin-left:auto;
+    margin-right:auto
+}
+
+table th {
+    text-align: center;
+    text-transform: uppercase;
+    background: #f2f0e6;
+}
+
+table th,
+table td {
+    padding: 6px 12px;
+    border: 1px solid #d9d7ce;
+}
+
+/* Homepage */
 .intro {
     transform: translateY(22vh);
 }
@@ -37,13 +63,16 @@ img {
 }
 
 /* Page content */
-
 .content {
     padding-top: 20px;
+    text-align: justify;
+}
+
+.content h1, h2 {
+    text-align: center;
 }
 
 /* Profile picture */
-
 .profile {
     width: 10vh;
     height: 10vh;
@@ -51,7 +80,6 @@ img {
 }
 
 /* Colored links */
-
 a:link, a:visited {
     color: var(--accent);
 }
@@ -64,14 +92,11 @@ a:hover {
     color: var(--accent) !important;
 }
 
-/* Copyright message */
-
 .copyright {
     margin: 15px 0;
 }
 
 /* Paginator */
-
 .pages {
     padding: 15px 0;
 }
@@ -81,7 +106,6 @@ a:hover {
 }
 
 /* List item for posts/projects */
-
 .item {
     padding: 10px 0;
 }
@@ -91,16 +115,30 @@ a:hover {
 }
 
 /* Navigation icons */
-
 .navbar-icon {
-    font-size: 125%;
     display: inline-block !important;
 }
 
 /* Colored borders at top/bottom of page */
-
 .navbar.navbar-default {
     border-top: var(--border-width) solid var(--accent);
+}
+
+.post-list {
+    max-width: none;
+    list-style: decimal;
+}
+
+.post-row {
+    list-style: none;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    text-align: justify;
+}
+
+.post-date {
+    float: right;
 }
 
 footer {

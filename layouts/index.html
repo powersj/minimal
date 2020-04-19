@@ -1,12 +1,32 @@
 {{ partial "header" . }}
 
-<main>
-    <div class="intro">
-        {{ with .Site.Params.profilePic }} <img class="profile" src="{{ . }}"> {{ end }}
-        <h1>{{ .Site.Title }}</h1>
-        <h2>{{ markdownify .Site.Params.Description }}</h2>
-        {{ with .Content }} <div class="homepage-content text-justify">{{ . }}</div> {{ end }}
-    </div>
+<main class="post-list">
+
+<h2>{{ .Title }}</h2>
+
+{{ range (where .Site.Pages "Type" "post").GroupByDate "2006" }}
+    <section>
+        <h2>{{ .Key }}</h2>
+        <ol>
+            {{ range .Pages }}
+                {{ if not (eq .Title "Posts") }}
+                    <div class="row">
+                        <li class="post-row">
+                            <span class="text-left">
+                                <a href="{{ .RelPermalink  }}">{{ .Title }}</a>
+                            </span>
+                            &nbsp; &nbsp;
+                            <span class="post-date text-right">
+                                {{ .Date.Format (.Site.Params.dateFormat)}}
+                            </span>
+                        </li>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </ol>
+    </section>
+{{ end }}
+
 </main>
 
 {{ partial "footer" . }}
