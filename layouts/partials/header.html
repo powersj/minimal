@@ -2,13 +2,21 @@
 <html lang="{{ .Site.LanguageCode }}">
     <head>
         {{ partial "head-open" . }}
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{{ if .Params.Description }}{{ .Params.Description }}{{ else if .Summary }}{{ .Summary }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
+
         <title>{{ .Title }}</title>
+
         {{ if .Site.Params.favicon }}
             <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
         {{ end }}
-        {{ partial "css" . }} {{ partial "js" . }} {{ hugo.Generator }}
+
+        {{ partial "css" . }}
+        {{ partial "js" . }}
+        {{ hugo.Generator }}
+
         {{ with .OutputFormats.Get "RSS" }}
             <link href="{{ .RelPermalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
             <link href="{{ .RelPermalink }}" rel="feed" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
