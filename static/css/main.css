@@ -1,7 +1,3 @@
-html, body {
-    height: 100%;
-}
-
 body {
     padding-top: 55px;
     display: flex;
@@ -11,10 +7,9 @@ body {
 
 main {
     margin: auto;
-    padding: 25px;
     flex: 1 0 auto;
     max-width: 750px;
-    font-size: 1.4em;
+    font-size: 1.2em;
     line-height: 1.4em;
 }
 
@@ -32,7 +27,9 @@ img[src$='#center']
 /* A better table */
 table {
     margin-left:auto;
-    margin-right:auto
+    margin-right:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 table th {
