@@ -1,32 +1,27 @@
 {{ partial "header" . }}
-
-<main class="post-list">
-
-<h2>{{ .Title }}</h2>
+<section class="hero is-danger">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">{{ .Title }}</h1>
+        </div>
+    </div>
+</section>
+<br />
 
 {{ range (where .Site.Pages "Type" "post").GroupByDate "2006" }}
-    <section>
-        <h2>{{ .Key }}</h2>
-        <ol>
-            {{ range .Pages }}
-                {{ if not (eq .Title "Posts") }}
-                    <div class="row">
-                        <li class="post-row">
-                            <span class="text-left">
-                                <a href="{{ .RelPermalink  }}">{{ .Title }}</a>
-                            </span>
-                            &nbsp; &nbsp;
-                            <span class="post-date text-right">
-                                {{ .Date.Format (.Site.Params.dateFormat)}}
-                            </span>
-                        </li>
-                    </div>
-                {{ end }}
-            {{ end }}
-        </ol>
-    </section>
+<div class="container content">
+    <h2 class="subtitle">{{ .Key }}</h2>
+    <ul style="list-style-type: none;">
+        {{ range .Pages }}{{ if not (eq .Title "Posts") }}
+        <li class="blog-post-row has-text-left">
+            {{ .Date.Format "2006-01-02"}}&nbsp;&nbsp;&nbsp;
+            <a href="{{ .RelPermalink  }}">{{ .Title }}</a>
+        </li>
+        {{ end }}{{ end }}
+    </ul>
+</div>
+<br />
 {{ end }}
 
-</main>
 
 {{ partial "footer" . }}

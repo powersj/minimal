@@ -1,12 +1,20 @@
-<script src="{{ "js/highlight.min.js" | absURL }}"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
+});
+</script>
 
 {{ range .Site.Params.js }}
     <script src="{{ . | absURL }}"></script>
 {{ end }}
-
-<script src="{{ "js/jquery.min.js" | absURL }}"></script>
-<script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
-
-<!-- dismiss expanded navigation bar with click -->
-<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>

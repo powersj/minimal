@@ -1,0 +1,38 @@
+body {
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+}
+
+code, kbd, pre, samp {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+footer {
+    border-bottom: var(--border-width) solid var(--accent);
+}
+
+img[src$='#center'] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a:link, a:visited {
+    color: var(--accent);
+}
+
+.content {
+    padding-top: 20px;
+    text-align: justify;
+}
+
+.copyright {
+    margin: 15px 0;
+}
+
+.item {
+    padding: 10px 0;
+}
+
+.navbar {
+    border-top: var(--border-width) solid var(--accent);
+}

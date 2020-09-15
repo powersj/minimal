@@ -1,28 +1,32 @@
 {{ partial "header" . }}
 
-<main>
-
-    <div>
-        <h2>{{ .Title }}</h2>
-        <h5>{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") }}</h5>
-        {{ partial "tags" . }}
+<section class="hero is-danger">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">{{ .Title }}</h1>
+            <h5>{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") }}</h5>
+            {{ partial "tags" . }}
+        </div>
     </div>
+</section>
+<br />
 
-    <div align="start" class="content">{{ .Content }}</div>
 
-    <!-- Related posts -->
-    {{ $related := first 3 (where (where (where .Site.Pages.ByDate.Reverse ".Type" "==" "post") ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-    {{ if $related }}
-        <h4 class="page-header">Related</h4>
-        {{ range $related }} {{ partial "list-item" . }} {{ end }}
-    {{ end }}
+<div align="start" class="container content">
+{{ .Content }}
+</div>
 
-    <!-- Disquis comments -->
-    {{ if and .Site.DisqusShortname (not .Params.disableComments) }}
-        <h4 class="page-header">Comments</h4>
-        {{ template "_internal/disqus.html" . }}
-    {{ end }}
+<!-- Related posts -->
+{{ $related := first 3 (where (where (where .Site.Pages.ByDate.Reverse ".Type" "==" "post") ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+{{ if $related }}
+    <h4 class="page-header">Related</h4>
+    {{ range $related }} {{ partial "list-item" . }} {{ end }}
+{{ end }}
 
-</main>
+<!-- Disquis comments -->
+{{ if and .Site.DisqusShortname (not .Params.disableComments) }}
+    <h4 class="page-header">Comments</h4>
+    {{ template "_internal/disqus.html" . }}
+{{ end }}
 
 {{ partial "footer" . }}

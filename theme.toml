@@ -1,7 +1,7 @@
 name = "minimal-local"
 license = "MIT"
 licenselink = "https://github.com/powersj/minimal-local/blob/master/LICENSE.md"
-description = "Personal blog theme powered by Hugo"
+description = "Personal blog theme powered by Hugo + Bulma"
 homepage = "https://github.com/powersj/minimal-local"
 tags = ["blog", "minimal", "personal", "responsive", "local"]
 features = ["responsive"]
